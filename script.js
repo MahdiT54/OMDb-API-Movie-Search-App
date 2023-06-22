@@ -7,7 +7,7 @@ const resultGrid = document.getElementById("result-grid");
 
 // load movies from API
 async function loadMovies(searchTerm) {
-  const URL = `http://www.omdbapi.com/?s=${searchTerm}&page=1&apikey=1c44ead`; // dynamic
+  const URL = `https://www.omdbapi.com/?s=${searchTerm}&page=1&apikey=1c44ead`; // dynamic
   const res = await fetch(`${URL}`);
   const data = await res.json();
   //   console.log(data.Search);
@@ -28,7 +28,7 @@ function displayMovieList(movies) {
   searchList.innerHTML = "";
   for (let idx = 0; idx < movies.length; idx++) {
     let movieListItem = document.createElement("div");
-    movieListItem.dataset.id = movies[idx].imdbID; //setting 
+    movieListItem.dataset.id = movies[idx].imdbID; //setting
     //movie id in data-id
     movieListItem.classList.add("search-list-item");
     if (movies[idx].Poster !== "N/A") {
@@ -51,24 +51,28 @@ function displayMovieList(movies) {
 }
 
 function loadMovieDetails() {
-    const searchListMovies = searchList.querySelectorAll('.search-list-item');
-    searchListMovies.forEach(movie => {
-        movie.addEventListener('click', async () => {
-            // console.log(movie.dataset.id);
-            searchList.classList.add('hide-search-list');
-            movieSearchBox.value = "";
-            const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=1c44ead`);
-            const movieDetails = await result.json();
-            // console.log(movieDetails);
-            displayMovieDetails(movieDetails);
-        });
+  const searchListMovies = searchList.querySelectorAll(".search-list-item");
+  searchListMovies.forEach((movie) => {
+    movie.addEventListener("click", async () => {
+      // console.log(movie.dataset.id);
+      searchList.classList.add("hide-search-list");
+      movieSearchBox.value = "";
+      const result = await fetch(
+        `http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=1c44ead`
+      );
+      const movieDetails = await result.json();
+      // console.log(movieDetails);
+      displayMovieDetails(movieDetails);
     });
+  });
 }
 
 function displayMovieDetails(details) {
-    resultGrid.innerHTML = `
+  resultGrid.innerHTML = `
     <div class="movie-poster">
-    <img src="${(details.Poster !== "N/A") ? details.Poster : "image_not_found.png"}" alt="movie poster" />
+    <img src="${
+      details.Poster !== "N/A" ? details.Poster : "image_not_found.png"
+    }" alt="movie poster" />
     </div>
     <div class="movie-info">
         <h3 class="movie-title">${details.Title}</h3>
@@ -95,8 +99,8 @@ function displayMovieDetails(details) {
     `;
 }
 
-window.addEventListener('click', (event) => {
-    if(event.target.className !== "form-control") {
-        searchList.classList.add('hide-search-list');
-    }
+window.addEventListener("click", (event) => {
+  if (event.target.className !== "form-control") {
+    searchList.classList.add("hide-search-list");
+  }
 });
