@@ -4,7 +4,7 @@
   --md-dark-color: #1d1d1d;
   --dark-color: #171717;
   --light-dark-color: #292929;
-  --yellow-color: #d4aa11;
+  --yellow-color: #DC1A28;
 }
 * {
   padding: 0;
@@ -23,6 +23,20 @@ a {
 img {
   width: 100%;
   display: block;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  width: 8rem;
+  align-self: center;
+}
+
+option {
+  text-align: center;
 }
 
 .wrapper {
@@ -49,14 +63,13 @@ img {
   border-bottom: 1px solid var(--light-dark-color);
 }
 
-.logo p {
-  font-size: 2rem;
-  color: #fff;
-  font-weight: bold;
+.logo__img {
+  height: 40px;
+  width: 150px;
 }
 
-.logo p span {
-  color: var(--yellow-color);
+.logo__img--child {
+  width: 100%;
 }
 
 .search-element {

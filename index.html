@@ -20,7 +20,9 @@
       <!-- logo -->
       <div class="logo">
         <div class="container">
-          <p>Movie<span>Corn.</span></p>
+          <div class="logo__img">
+            <img src="./assets/navlogo.png" alt="" class="logo__img--child"/>
+          </div>
         </div>
       </div>
       <!-- end of logo -->
@@ -41,11 +43,18 @@
         </div>
       </div>
       <div class="container">
+      </div>
+      <div class="container filter-container">
+        <select id="filter" onchange="filterBooks(event)" class="hide-search-list">
+          <option value="ALPHA">Alphabetical</option>
+          <option value="LATEST">Latest</option>
+          <option value="OLDEST">Oldest</option>
+        </select>
         <div class="search-list" id="search-list">
           <!-- list here -->
           <!-- <div class="search-list-item">
             <div class="search-item-thumbnail">
-              <img src="medium-cover.jpg" alt="" />
+              <img src="./assets/medium-cover.jpg" alt="" />
             </div>
             <div class="search-item-info">
               <h3>Guardians of the Galaxy Vol. 2</h3>
@@ -62,7 +71,7 @@
           <div class="result-grid" id="result-grid">
             <!-- movie info here -->
             <!-- <div class="movie-poster">
-              <img src="medium-cover.jpg" alt="movie poster" />
+              <img src="./assets/medium-cover.jpg" alt="movie poster" />
             </div>
             <div class="movie-info">
               <h3 class="movie-title">Guardians of the Galaxy Vol. 2</h3>
