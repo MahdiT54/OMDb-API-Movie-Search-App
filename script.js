@@ -11,7 +11,7 @@ async function loadMovies(searchTerm) {
   const res = await fetch(`${URL}`);
   const data = await res.json();
   //   console.log(data.Search);
-  if (data.Response == "True") displayMovieList(data.Search);
+  if (data.Response === "True") displayMovieList(data.Search);
 }
 
 function findMovies() {
@@ -26,7 +26,7 @@ function findMovies() {
 
 function displayMovieList(movies) {
   searchList.innerHTML = "";
-  for (let idx = 0; idx < movies.length; idx++) {
+  for (let idx = 0; idx < 6; idx++) { // first 6
     let movieListItem = document.createElement("div");
     movieListItem.dataset.id = movies[idx].imdbID; //setting
     //movie id in data-id

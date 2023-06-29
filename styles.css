@@ -88,19 +88,15 @@ img {
 }
 
 .search-list {
-  position: absolute;
-  right: 0;
-  top: 100%;
-  max-height: 500px;
-  overflow-y: scroll;
-  z-index: 10;
+  max-height: calc(100vh - 252px);
+  flex-wrap: wrap;
+  display: flex;
 }
 
 .search-list .search-list-item {
   background-color: var(--light-dark-color);
   padding: 0.5rem;
   border-bottom: 1px solid var(--dark-color);
-  width: calc(350px - 8px);
   color: #fff;
   cursor: pointer;
   transition: background-color 200ms ease;
@@ -111,13 +107,15 @@ img {
 }
 
 .search-list-item {
-  display: flex;
-  align-items: center;
+  text-align: center;
+  max-width: 24.333rem;
+  width: 100%;
+  height: 300px;
 }
 
 .search-item-thumbnail img {
-  width: 40px;
-  margin-right: 1rem;
+  width: 150px;
+  margin: 0 auto;
 }
 
 .search-item-info h3 {
